@@ -1,0 +1,167 @@
+/* RESET */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* FUNDO */
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: radial-gradient(circle at top, #0f172a, #020617);
+  color: #e5e7eb;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.6s ease;
+}
+
+/* 🔴 MODO VERMELHO */
+body.modo-vermelho {
+  background: radial-gradient(circle at top, #450a0a, #020617);
+}
+
+/* CARD */
+.card {
+  background: linear-gradient(160deg, #020617, #020617cc);
+  padding: 50px;
+  border-radius: 47px;
+  width: 360px;
+  box-shadow: 0 20px 40px rgba(0,0,0,.6);
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.logo {
+  height: 120px;
+}
+
+/* TEXTOS */
+h1 {
+  font-size: 1.5rem;
+  letter-spacing: .5px;
+}
+
+label {
+  display: block;
+  margin-top: 12px;
+  margin-bottom: 4px;
+  font-size: .9rem;
+}
+
+/* INPUT */
+input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+}
+
+/* BOTÃO */
+button {
+  width: 100%;
+  padding: 14px;
+  margin-top: 16px;
+  border-radius: 14px;
+  border: none;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(37,99,235,.4);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 26px rgba(37,99,235,.6);
+}
+
+/* CONTADOR */
+.tempo {
+  margin-top: 22px;
+  font-size: 1.35rem;
+  font-weight: bold;
+  color: #38bdf8;
+}
+
+/* FINAL */
+.final {
+  display: none;
+  margin-top: 20px;
+}
+
+.final h2 {
+  margin-bottom: 6px;
+}
+
+/* PERSONAGEM */
+.personagem {
+  width: 140px;
+  margin-top: 18px;
+  animation: respirar 3s ease-in-out infinite;
+  transform-origin: center bottom;
+}
+
+/* Respiração */
+@keyframes respirar {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.04); }
+  100% { transform: scale(1); }
+}
+
+/* Batimento (últimos segundos) */
+.modo-vermelho .personagem {
+  animation: batimento 0.6s ease-in-out infinite;
+}
+
+@keyframes batimento {
+  0%   { transform: scale(1); }
+  25%  { transform: scale(1.12); }
+  50%  { transform: scale(1); }
+  75%  { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+/* 🎉 COMEMORAÇÃO FINAL */
+.personagem.comemorar {
+  animation: comemorar 0.8s ease-in-out infinite;
+}
+
+@keyframes comemorar {
+  0%   { transform: rotate(0deg) scale(1); }
+  25%  { transform: rotate(-6deg) scale(1.15); }
+  50%  { transform: rotate(6deg) scale(1.25); }
+  75%  { transform: rotate(-6deg) scale(1.15); }
+  100% { transform: rotate(0deg) scale(1); }
+}
+
+/* BALÃO DE FALA */
+.fala {
+  margin: 10px auto 0;
+  padding: 10px 14px;
+  background: rgba(0,0,0,0.7);
+  border-radius: 14px;
+  font-size: 0.9rem;
+  color: #fff;
+  max-width: 240px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all .4s ease;
+}
+
+.fala.mostrar {
+  opacity: 1;
+  transform: translateY(0);
+}
